@@ -5,10 +5,12 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["../MyKafkaConsumerTasked/MyKafkaConsumerTasked.csproj", "../MyKafkaConsumerTasked/"]
-RUN dotnet restore "../MyKafkaConsumerTasked/MyKafkaConsumerTasked.csproj"
+COPY ["./MyKafkaConsumerTasked/MyKafkaConsumerTasked.csproj", "MyKafkaConsumerTasked/"]
+COPY ["./Shared/Shared.csproj", "Shared/"]
+RUN dotnet restore "MyKafkaConsumerTasked/MyKafkaConsumerTasked.csproj"
+RUN dotnet restore "Shared/Shared.csproj"
 COPY . .
-WORKDIR "/src/../MyKafkaConsumerTasked"
+WORKDIR "/src/MyKafkaConsumerTasked"
 RUN dotnet build "MyKafkaConsumerTasked.csproj" -c Release -o /app/build
 
 FROM build AS publish

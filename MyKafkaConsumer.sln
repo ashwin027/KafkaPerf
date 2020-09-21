@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyKafkaConsumerTasked", "My
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{1DDD9E41-653B-442E-BFF7-CB4F5ACA2BB4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{96AAA2E2-A320-4C20-8C30-F8377B602703}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+		DockerfileTasked = DockerfileTasked
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
